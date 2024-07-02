@@ -1361,7 +1361,7 @@ class ImageDataGenerator:
 
         brightness = None
         if self.brightness_range is not None:
-            brightness = [self.brightness_range[0], self.brightness_range[1]]
+            brightness = self.brightness_range[0]
 
         transform_parameters = {
             "theta": theta,
