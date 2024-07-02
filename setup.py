@@ -26,7 +26,7 @@ README = (HERE / "README.md").read_text()
 VERSION = get_version("keras/src/version.py")
 
 setup(
-    name="keras-idg-no-random",
+    name="keras_idg_no_random",
     description="Multi-backend Keras.",
     long_description_content_type="text/markdown",
     long_description=README,
