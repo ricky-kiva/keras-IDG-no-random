@@ -61,7 +61,7 @@ setup(
         "Topic :: Software Development",
     ],
     packages=find_packages(
-        include=("keras_idg_no_random", "keras_idg_no_random.*"),
+        include=("keras", "keras.*"),
         exclude=("*_test.py", "benchmarks"),
     ),
 )
