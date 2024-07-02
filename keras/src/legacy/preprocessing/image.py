@@ -1310,13 +1310,13 @@ class ImageDataGenerator:
             np.random.seed(seed)
 
         if self.rotation_range:
-            theta = np.random.uniform(-self.rotation_range, self.rotation_range)
+            theta = self.rotation_range
         else:
             theta = 0
 
         if self.height_shift_range:
             try:  # 1-D array-like or int
-                tx = np.random.choice(self.height_shift_range)
+                tx = self.height_shift_range
                 tx *= np.random.choice([-1, 1])
             except ValueError:  # floating point
                 tx = np.random.uniform(
@@ -1329,7 +1329,7 @@ class ImageDataGenerator:
 
         if self.width_shift_range:
             try:  # 1-D array-like or int
-                ty = np.random.choice(self.width_shift_range)
+                ty = self.width_shift_range
                 ty *= np.random.choice([-1, 1])
             except ValueError:  # floating point
                 ty = np.random.uniform(
@@ -1348,9 +1348,7 @@ class ImageDataGenerator:
         if self.zoom_range[0] == 1 and self.zoom_range[1] == 1:
             zx, zy = 1, 1
         else:
-            zx, zy = np.random.uniform(
-                self.zoom_range[0], self.zoom_range[1], 2
-            )
+            zx, zy =  [self.zoom_range[0], self.zoom_range[1]]
 
         flip_horizontal = (np.random.random() < 0.5) * self.horizontal_flip
         flip_vertical = (np.random.random() < 0.5) * self.vertical_flip
@@ -1363,9 +1361,7 @@ class ImageDataGenerator:
 
         brightness = None
         if self.brightness_range is not None:
-            brightness = np.random.uniform(
-                self.brightness_range[0], self.brightness_range[1]
-            )
+            brightness = [self.brightness_range[0], self.brightness_range[1]]
 
         transform_parameters = {
             "theta": theta,
