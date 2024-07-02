@@ -26,7 +26,7 @@ README = (HERE / "README.md").read_text()
 VERSION = get_version("keras/src/version.py")
 
 setup(
-    name="keras",
+    name="keras-idg-no-random",
     description="Multi-backend Keras.",
     long_description_content_type="text/markdown",
     long_description=README,
@@ -61,7 +61,7 @@ setup(
         "Topic :: Software Development",
     ],
     packages=find_packages(
-        include=("keras", "keras.*"),
+        include=("keras_idg_no_random", "keras_idg_no_random.*"),
         exclude=("*_test.py", "benchmarks"),
     ),
 )
